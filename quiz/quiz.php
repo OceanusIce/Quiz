@@ -52,7 +52,8 @@ class QuizInfo{
     //THE SET TITLE FUNCTION i.e BRONZE OR SILVER OR ...etc
     function setTitleLevel(){
 	    global $con;
-        $title = $_SESSION['title'];
+        $u_title = $_SESSION['title'];
+	$title = "'$u_title'";
         $point = $_SESSION['gpoint'];
         echo $title.'<br>'.$point;
 		mysqli_query($con, "UPDATE quiz_records SET user_title = $title, points_obtained = $point WHERE quiz_id = ".$_SESSION['quiz_id'].";") or mysqli_error($con);
